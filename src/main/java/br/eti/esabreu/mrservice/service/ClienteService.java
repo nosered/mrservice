@@ -1,5 +1,10 @@
 package br.eti.esabreu.mrservice.service;
 
-public interface ClienteService {
+import java.util.List;
 
+import br.eti.esabreu.mrservice.model.Cliente;
+
+public interface ClienteService {
+	void salvar(Cliente cliente);
+	List<Cliente> buscar();
 }
