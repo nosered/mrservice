@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layouts/base">
+<head>
+	<title>MR - Agendamentos</title>
+</head>
+
+<!-- Content Wrapper. Contains page content -->
+<div layout:fragment="conteudo" class="content-wrapper">
+	<!-- Content Header (Page header) -->
+    <section class="content-header">
+    	<h1>Assistência Técnica
+        	<small>Lavadoras de roupa</small>
+      	</h1>
+      	<ol class="breadcrumb">
+        	<li><a href="#"><i class="fa fa-home"></i> MR App</a></li>
+        	<li class="active">Home</li>
+      	</ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+   		<div class="box">
+        	<div class="box-header">
+          		<i class="ion ion-clipboard"></i>
+          		<h3 class="box-title">Agendamentos</h3>
+        	</div>
+        
+        	<div class="box-body">
+          		<table id="agendamentos" class="table table-bordered table-hover">
+            		<thead>
+              			<tr>
+                			<th>Cliente</th>
+                			<th>Data agendada</th>
+                			<th>Telefone</th>
+                			<th>Endereço</th>
+                			<th>Situação</th>
+              			</tr>
+            		</thead>
+            		<tbody>
+              			<tr>
+                			<td>Marcos Antônio</td>
+                			<td>01/01/2001</td>
+                			<td>(80) 8989-8989</td>
+                			<td>Fortaleza-CE</td>
+                			<td>Aberto</td>
+              			</tr>
+              			<tr>
+                			<td>Rosa Maria</td>
+                			<td>02/02/2002</td>
+                			<td>(81) 8889-8889</td>
+                			<td>Senador Pompeu-CE</td>
+                			<td>Aberto</td>
+              			</tr>
+              			<tr>
+                			<td>Alison Santos</td>
+                			<td>03/03/2003</td>
+                			<td>(84) 8484-8484</td>
+                			<td>Quixeramobim-CE</td>
+                			<td>Aberto</td>
+              			</tr>
+              			<tr>
+                			<td>Mariana Silva</td>
+                			<td>10/10/2005</td>
+                			<td>(99) 8585-8585</td>
+                			<td>Maracanau-CE</td>
+                			<td>Aberto</td>
+              			</tr>
+              			<tr>
+                			<td>Pedro Lucas</td>
+                			<td>07/10/2003</td>
+                			<td>(84) 8484-8484</td>
+                			<td>Fortaleza-CE</td>
+                			<td>Aberto</td>
+              			</tr>
+            		</tbody>
+            		<tfoot>
+              			<tr>
+                			<th>Cliente</th>
+                			<th>Data agendada</th>
+                			<th>Telefone</th>
+                			<th>Endereço</th>
+                			<th>Situação</th>
+              			</tr>
+            		</tfoot>
+          		</table>
+        	</div><!-- /.box-body -->
+        	
+        	<div class="box-footer clearfix no-border">
+        		<button type="button" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Agendar Visita</button>
+        	</div>
+		</div><!-- ./box -->
+	</section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+
+<section layout:fragment="js">
+	<script>
+  		$(function () {
+    		$('#agendamentos').DataTable({
+      			"paging": true,
+      			"lengthChange": false,
+      			"searching": false,
+      			"ordering": true,
+      			"info": true,
+      			"autoWidth": false
+    		});
+  		});
+	</script>
+</section>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layouts/base">
+    
+<head>
+	<title>MR - Home</title>
+</head>
+
+<!-- Content Wrapper. Contains page content -->
+<div layout:fragment="conteudo" class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>Assistência Técnica
+        	<small>Lavadoras de roupa</small>
+      	</h1>
+      	<ol class="breadcrumb">
+        	<li><a href="#"><i class="fa fa-home"></i> MR App</a></li>
+        	<li class="active">Home</li>
+      	</ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+    	<!-- Small boxes (Stat box) -->
+    	<div class="row">
+    		<div class="col-lg-3 col-xs-6">
+    			<!-- small box -->
+    			<div class="small-box bg-aqua">
+            		<div class="inner">
+              			<h3>7</h3>
+              			<p>Ordens de Serviço</p>
+            		</div>
+            		<div class="icon">
+              			<i class="ion ion-wrench"></i>
+            		</div>
+            		<a th:href="@{/}" class="small-box-footer">Listar O.S. <i class="fa fa-arrow-circle-right"></i></a>
+          		</div>
+        	</div><!-- ./col -->
+        	<div class="col-lg-3 col-xs-6">
+          		<!-- small box -->
+          		<div class="small-box bg-yellow">
+            		<div class="inner">
+              			<h3>15</h3>
+              			<p>Clientes</p>
+            		</div>
+            		<div class="icon">
+              			<i class="ion ion-person-add"></i>
+            		</div>
+            		<a th:href="@{/cliente/cadastrar}" class="small-box-footer">Cadastrar cliente <i class="fa fa-arrow-circle-right"></i></a>
+          		</div>
+        	</div><!-- ./col -->
+        
+        	<div class="col-lg-3 col-xs-6">
+          		<!-- small box -->
+          		<div class="small-box bg-green">
+            		<div class="inner">
+              			<h3>44</h3>
+              			<p>Caixa</p>
+            		</div>
+            		<div class="icon">
+              			<i class="ion ion-social-usd"></i>
+            		</div>
+            		<a th:href="@{/}" class="small-box-footer">Ver fluxo de Caixa <i class="fa fa-arrow-circle-right"></i></a>
+          		</div>
+        	</div><!-- ./col -->
+        	
+        	<div class="col-lg-3 col-xs-6">
+          		<!-- small box -->
+          		<div class="small-box bg-red">
+            		<div class="inner">
+              			<h3>65</h3>
+              			<p>Agenda</p>
+            		</div>
+            		<div class="icon">
+              			<i class="ion ion-calendar"></i>
+            		</div>
+            		<a th:href="@{/os/agendamentos}" class="small-box-footer">Ver agendamentos <i class="fa fa-arrow-circle-right"></i></a>
+          		</div>
+        	</div><!-- ./col -->
+      	</div>
+    </section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+
+</html>

@@ -9,7 +9,7 @@
 	<packaging>war</packaging>
 
 	<name>mrservice</name>
-	<description>Projeto de um sistema para assist�ncia t�cnica</description>
+	<description>Projeto de um sistema para assistência técnica</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layouts/base">
+<head>
+  	<title>MR - Clientes</title>
+</head>
+
+<!-- Content Wrapper. Contains page content -->
+<div layout:fragment="conteudo" class="content-wrapper">
+	<!-- Content Header (Page header) -->
+    <section class="content-header">
+      	<h1>Assistência Técnica
+        	<small>Lavadoras de roupa</small>
+      	</h1>
+      	<ol class="breadcrumb">
+        	<li><a href="#"><i class="fa fa-home"></i> MR App</a></li>
+        	<li class="active">Home</li>
+      	</ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+    	<div class="box">
+        	<div class="box-header">
+              	<h3 class="box-title">Clientes</h3>
+            </div>
+       
+       		<div class="box-body">
+              	<table id="agendamentos" class="table table-bordered table-hover">
+                	<thead>
+                		<tr>
+                  			<th>Nome</th>
+                  			<th>Telefone</th>
+                  			<th>Endereço</th>
+                  			<th>Agendar Visita</th>
+                  			<th>Ver detalhes</th>
+                		</tr>
+                	</thead>
+                	<tbody>
+                		<tr th:each="cliente :	${clienteList}">
+                  			<td th:text="${cliente.nome}"></td>
+                  			<td th:text="${cliente.telefone}"></td>
+                  			<td th:text="${cliente.endereco}"></td>
+                  			<td><a href="#"><button class="btn btn-success btn-sm btn-block">Agendar</button></a></td>
+                  			<td><a th:href="@{/cliente/detalhes/1}"><button class="btn btn-default btn-sm btn-block">Detalhes</button></a></td>
+                		</tr>
+                	</tbody>
+                	<tfoot>
+                		<tr>
+                  			<th>Nome</th>
+                  			<th>Telefone</th>
+                  			<th>Endereço</th>
+                  			<th>Agendar</th>
+                  			<th>Ver detalhes</th>
+                		</tr>
+                	</tfoot>
+              	</table>
+            </div><!-- /.box-body -->
+		</div><!-- ./box -->
+	</section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+
+<section layout:fragment="js">
+	<script>
+  		$(function () {
+    		$('#agendamentos').DataTable({
+      			"paging": true,
+      			"lengthChange": false,
+      			"searching": true,
+      			"ordering": true,
+      			"info": true,
+      			"autoWidth": false
+    		});
+  		});
+	</script>
+</section>
+
+</html>

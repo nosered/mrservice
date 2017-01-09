@@ -1,0 +1,36 @@
+Cliente:
+	Nome;
+	Endereço;
+	Telefone;
+	Lista <Máquina>;
+
+Máquina:
+	Marca;
+	Modelo;
+	Kg;
+
+Serviço:
+	Descrição;
+	Valor;
+
+Peça:
+	Descrição;
+	Fabricante;
+	Modelo;
+	Valor;
+
+Ordem de serviço:
+	Tipo: [Oficina, Visita, Garantia];
+	Situação: [Pendente, Autorizada, Cancelada, Em Serviço, Terminada];
+	Data Início;
+	Data Término;
+	Cliente;
+	Máquina;
+	Lista <Serviço>;
+	Lista <Peça>;
+	Total (Calculado ou Armazenado?);
+
+Usuário:
+	Login;
+	Senha;
+	Papel: [Operador, Administrador];
