@@ -29,63 +29,17 @@
         	</div>
         
         	<div class="box-body">
-          		<table id="agendamentos" class="table table-bordered table-hover">
-            		<thead>
-              			<tr>
-                			<th>Cliente</th>
-                			<th>Data agendada</th>
-                			<th>Telefone</th>
-                			<th>Endereço</th>
-                			<th>Situação</th>
-              			</tr>
-            		</thead>
-            		<tbody>
-              			<tr>
-                			<td>Marcos Antônio</td>
-                			<td>01/01/2001</td>
-                			<td>(80) 8989-8989</td>
-                			<td>Fortaleza-CE</td>
-                			<td>Aberto</td>
-              			</tr>
-              			<tr>
-                			<td>Rosa Maria</td>
-                			<td>02/02/2002</td>
-                			<td>(81) 8889-8889</td>
-                			<td>Senador Pompeu-CE</td>
-                			<td>Aberto</td>
-              			</tr>
-              			<tr>
-                			<td>Alison Santos</td>
-                			<td>03/03/2003</td>
-                			<td>(84) 8484-8484</td>
-                			<td>Quixeramobim-CE</td>
-                			<td>Aberto</td>
-              			</tr>
-              			<tr>
-                			<td>Mariana Silva</td>
-                			<td>10/10/2005</td>
-                			<td>(99) 8585-8585</td>
-                			<td>Maracanau-CE</td>
-                			<td>Aberto</td>
-              			</tr>
-              			<tr>
-                			<td>Pedro Lucas</td>
-                			<td>07/10/2003</td>
-                			<td>(84) 8484-8484</td>
-                			<td>Fortaleza-CE</td>
-                			<td>Aberto</td>
-              			</tr>
-            		</tbody>
-            		<tfoot>
-              			<tr>
-                			<th>Cliente</th>
-                			<th>Data agendada</th>
-                			<th>Telefone</th>
-                			<th>Endereço</th>
-                			<th>Situação</th>
-              			</tr>
-            		</tfoot>
-          		</table>
+        		<script>
+        			$(document).ready(function() {
+        	        	$('#calendar').fullCalendar({
+        	            	theme: true,
+        	            	editable: false,
+        	            	events: "../data/agendamentos"
+        	        	});
+        	 
+        	    	});
+        		</script>
+          		<div id="calendar"></div>
         	</div><!-- /.box-body -->
         	
         	<div class="box-footer clearfix no-border">
@@ -97,16 +51,28 @@
 
 <section layout:fragment="js">
 	<script>
-  		$(function () {
-    		$('#agendamentos').DataTable({
-      			"paging": true,
-      			"lengthChange": false,
-      			"searching": false,
-      			"ordering": true,
-      			"info": true,
-      			"autoWidth": false
-    		});
-  		});
+		$(function () {
+			var date = new Date();
+		    var d = date.getDate(),
+		        m = date.getMonth(),
+		        y = date.getFullYear();
+		    $('#calendar').fullCalendar({
+		      header: {
+		        left: 'prev,next today',
+		        center: 'title',
+		        right: 'month,agendaWeek,agendaDay'
+		      },
+		      buttonText: {
+		        today: 'today',
+		        month: 'month',
+		        week: 'week',
+		        day: 'day'
+		      },
+		      editable: false,
+		      droppable: false,
+		      events: "../data/agendamentos"
+		    });
+		});
 	</script>
 </section>
 
