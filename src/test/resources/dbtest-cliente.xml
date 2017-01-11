@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<cliente id="1" nome="cliente um"></cliente>
+	<cliente id="2" nome="cliente dois"></cliente>
+	<cliente id="3" nome="cliente três"></cliente>
+</dataset>
