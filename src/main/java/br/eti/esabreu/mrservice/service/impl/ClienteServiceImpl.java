@@ -19,6 +19,16 @@ public class ClienteServiceImpl implements ClienteService {
 	public void salvar(Cliente cliente) {
 		clienteRepository.save(cliente);
 	}
+	
+	@Override
+	public void remover(Integer idCliente) {
+		clienteRepository.delete(idCliente);
+	}
+	
+	@Override
+	public Cliente buscar(Integer idCliente) {
+		return clienteRepository.findOne(idCliente);
+	}
 
 	@Override
 	public List<Cliente> buscar() {
