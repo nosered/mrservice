@@ -6,4 +6,6 @@ public class RedirectConstantes {
 	public static final String REDIRECT_DETALHES_CLIENTE = "redirect:/cliente/detalhes/";
 	
 	public static final String REDIRECT_LISTAR_SERVICOS = "redirect:/servico/listar";
+	
+	public static final String REDIRECT_LISTAR_ITENS = "redirect:/item/listar";
 }
