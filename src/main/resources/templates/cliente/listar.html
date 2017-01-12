@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorator="layouts/base">
+    layout:decorator="layouts/base"
+    th:with="currentPage='cliente'">
 <head>
   	<title>MR - Clientes</title>
 </head>
@@ -28,23 +29,23 @@
             </div>
        
        		<div class="box-body">
-              	<table id="agendamentos" class="table table-bordered table-hover">
+              	<table id="clientes" class="table table-bordered table-hover">
                 	<thead>
                 		<tr>
                   			<th>Nome</th>
                   			<th>Telefone</th>
                   			<th>Endereço</th>
                   			<th>Agendar Visita</th>
-                  			<th>Ver detalhes</th>
+                  			<!-- <th>Ver detalhes</th> -->
                 		</tr>
                 	</thead>
                 	<tbody>
                 		<tr th:each="cliente :	${clienteList}">
-                  			<td th:text="${cliente.nome}"></td>
+                  			<td><strong><a th:href="@{/cliente/detalhes/{idCliente}(idCliente=${cliente.id})}" th:text="${cliente.nome}" style="display:block;"></a></strong></td>
                   			<td th:text="${cliente.telefone}"></td>
                   			<td th:text="${cliente.endereco}"></td>
                   			<td><a href="#"><button class="btn btn-success btn-sm btn-block">Agendar</button></a></td>
-                  			<td><a th:href="@{/cliente/detalhes/1}"><button class="btn btn-default btn-sm btn-block">Detalhes</button></a></td>
+                  			<!-- <td><a th:href="@{/cliente/detalhes/{idCliente}(idCliente=${cliente.id})}"><button class="btn btn-default btn-sm btn-block">Detalhes</button></a></td> -->
                 		</tr>
                 	</tbody>
                 	<tfoot>
@@ -53,7 +54,7 @@
                   			<th>Telefone</th>
                   			<th>Endereço</th>
                   			<th>Agendar</th>
-                  			<th>Ver detalhes</th>
+                  			<!-- <th>Ver detalhes</th> -->
                 		</tr>
                 	</tfoot>
               	</table>
@@ -65,11 +66,11 @@
 <section layout:fragment="js">
 	<script>
   		$(function () {
-    		$('#agendamentos').DataTable({
+    		$('#clientes').DataTable({
       			"paging": true,
       			"lengthChange": false,
       			"searching": true,
-      			"ordering": true,
+      			"ordering": false,
       			"info": true,
       			"autoWidth": false
     		});

@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorator="layouts/base">
+    layout:decorator="layouts/base"
+    th:with="currentPage='cliente'">
     
 <head>
   	<title>MR - Cliente</title>
@@ -28,22 +29,23 @@
           		<h3 class="box-title">Cadastrar cliente</h3>
         	</div><!-- /.box-header -->
         	
-        	<form th:action="@{/cliente/cadastrar}" method="post" th:object="${cliente}">
+        	<form th:action="@{/cliente/salvar}" method="post" th:object="${cliente}">
         		<div class="box-body">
           			<div class="row">
             			<div class="col-md-6">
+            				<input type="hidden" th:field="*{id}"></input>
               				<div class="form-group">
                 				<label for="inputNome">Nome</label>
                 				<div class="input-group">  
                   					<span class="input-group-addon"><i class="fa fa-font"></i></span>
-                  					<input type="text" class="form-control" id="inputNome" th:field="*{nome}"></input>
+                  					<input type="text" class="form-control input-lg" id="inputNome" th:field="*{nome}"></input>
                 				</div>
               				</div>
               				<div class="form-group">
                 				<label for="inputTelefone">Telefone</label>
                 				<div class="input-group">  
                   					<span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                  					<input type="text" class="form-control" id="inputTelefone" th:field="*{telefone}" data-inputmask='"mask": "(99) 9999-9999"' data-mask=""></input>
+                  					<input type="text" class="form-control input-lg" id="inputTelefone" th:field="*{telefone}"></input>
                 				</div>
               				</div>
             			</div><!-- ./col -->
@@ -53,7 +55,27 @@
                 				<label for="inputEndereco">Endereço</label>
                 				<div class="input-group">  
                   					<span class="input-group-addon"><i class="fa fa-road"></i></span>
-                  					<input type="text" class="form-control" id="inputEndereco" th:field="*{endereco}"></input>
+                  					<input type="text" class="form-control input-lg" id="inputEndereco" th:field="*{endereco}"></input>
+                				</div>
+              				</div>
+              				<div class="form-group">
+                				<label for="inputBairro">Bairro</label>
+                				<div class="input-group input-group-lg">  
+                  					<span class="input-group-addon"><i class="fa fa-road"></i></span>
+                  					<!-- <input type="text" class="form-control" id="inputBairro" th:field="*{bairro}"></input> -->
+                  					<select class="form-control input-lg" style="width:100%;" id="inputBairro" th:field="*{bairro}">
+                      					<option th:each="bairro : ${bairros}" th:value="${bairro}" th:text="${bairro.nome}"></option>
+                    				</select>
+                				</div>
+              				</div>
+            			</div><!-- ./col -->
+            			
+            			<div class="col-md-6">
+              				<div class="form-group">
+                				<label for="inputPontoReferencia">Ponto de referência</label>
+                				<div class="input-group">  
+                  					<span class="input-group-addon"><i class="fa fa-font"></i></span>
+                  					<input type="text" class="form-control input-lg" id="inputPontoReferencia" th:field="*{pontoReferencia}"></input>
                 				</div>
               				</div>
             			</div><!-- ./col -->
@@ -61,12 +83,34 @@
         		</div><!-- /.box-body -->
 			
 				<div class="box-footer">
-          			<button type="submit" class="btn btn-success pull-right">Cadastrar</button>
+          			<button type="submit" class="btn btn-success pull-right btn-lg">Salvar</button>
           			<!--<a href="index.html"><button class="btn btn-warning pull-right">Cancelar</button></a>-->
         		</div>
         	</form>
       	</div><!-- /.box -->
 	</section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+
+<!-- SE NECESSÁRIO JAVASCRIPT EXTRA -->
+<section layout:fragment="js">
+	<script>
+  		$(function () {
+    		//Initialize Select2 Elements
+    		$(".select2").select2();
+    		
+    		//$("#inputTelefone").inputmask("(99)9{4,5}-9999")
+    		
+    		var SPMaskBehavior = function (val) {
+    			return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+    		},
+    		spOptions = {
+    			onKeyPress: function(val, e, field, options) {
+    		    	field.mask(SPMaskBehavior.apply({}, arguments), options);
+    			}
+    		};
+    		$('#inputTelefone').mask(SPMaskBehavior, spOptions);
+  		});
+	</script>
+</section>
 
 </html>

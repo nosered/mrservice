@@ -101,7 +101,7 @@
       			<ul class="sidebar-menu">
         			<li class="header">MENU PRINCIPAL</li>
         			<!-- Optionally, you can add icons to the links -->
-        			<li class="treeview active">
+        			<li class="treeview" th:classappend="(${currentPage} == 'agenda') ? active">
           				<a href="#"><i class="fa fa-calendar"></i><span> Agenda</span>
             				<span class="pull-right-container">
               					<i class="fa fa-angle-left pull-right"></i>
@@ -112,18 +112,18 @@
             				<li><a th:href="@{/os/agendar}">Agendar Visita</a></li>
           				</ul>
         			</li>
-        			<li class="treeview">
+        			<li class="treeview" th:classappend="(${currentPage} == 'cliente') ? active">
           				<a href="#"><i class="fa fa-male"></i> <span> Cliente</span>
             				<span class="pull-right-container">
               					<i class="fa fa-angle-left pull-right"></i>
             				</span>
           				</a>
           				<ul class="treeview-menu">
-            				<li><a th:href="@{/cliente/cadastrar}">Cadastrar cliente</a></li>
+            				<li><a th:href="@{/cliente/form}">Cadastrar cliente</a></li>
             				<li><a th:href="@{/cliente/listar}">Listar clientes</a></li>
           				</ul>
         			</li>
-        			<li class="treeview">
+        			<li class="treeview" th:classappend="(${currentPage} == 'ordemservico') ? active">
           				<a href="#"><i class="fa fa-wrench"></i> <span> Ordem de Serviço</span>
             				<span class="pull-right-container">
               					<i class="fa fa-angle-left pull-right"></i>
@@ -131,8 +131,8 @@
           				</a>
           				<ul class="treeview-menu">
             				<li><a th:href="@{/os/abrir}">Abrir O.S.</a></li>
-            				<li><a th:href="@{/}">Listar O.S. (Abertas)</a></li>
-            				<li><a th:href="@{/}">Listar O.S. (Todas)</a></li>
+            				<li><a href="#">Listar O.S. (Abertas)</a></li>
+            				<li><a href="#">Listar O.S. (Todas)</a></li>
           				</ul>
         			</li>
         			<li class="treeview">
@@ -142,10 +142,10 @@
             				</span>
           				</a>
           				<ul class="treeview-menu">
-            				<li><a th:href="@{/}">Caixa</a></li>
-            				<li><a th:href="@{/}">Contas a pagar</a></li>
-            				<li><a th:href="@{/}">Contas a receber</a></li>
-            				<li><a th:href="@{/}">Relatório</a></li>
+            				<li><a href="#">Caixa</a></li>
+            				<li><a href="#">Contas a pagar</a></li>
+            				<li><a href="#">Contas a receber</a></li>
+            				<li><a href="#">Relatório</a></li>
           				</ul>
         			</li>
       			</ul><!-- /.sidebar-menu -->
@@ -201,14 +201,19 @@
 	<script th:src="@{/plugins/datatables/dataTables.bootstrap.min.js}"></script>
 	<!-- Select2 -->
 	<script th:src="@{/plugins/select2/select2.full.min.js}"></script>
+	<!-- jQuery Mask-plugin -->
+	<script th:src="@{/plugins/mask-plugin/mask-plugin-1.14.8.min.js}"></script>
 	<!-- InputMask -->
 	<script th:src="@{/plugins/input-mask/jquery.inputmask.js}"></script>
 	<script th:src="@{/plugins/input-mask/jquery.inputmask.date.extensions.js}"></script>
+	<script th:src="@{/plugins/input-mask/jquery.inputmask.phone.extensions.js}"></script>
+	<script th:src="@{/plugins/input-mask/jquery.inputmask.numeric.extensions.js}"></script>
+	<script th:src="@{/plugins/input-mask/jquery.inputmask.regex.extensions.js}"></script>
 	<script th:src="@{/plugins/input-mask/jquery.inputmask.extensions.js}"></script>
 	<!-- bootstrap datepicker -->
 	<script th:src="@{/plugins/datepicker/bootstrap-datepicker.js}"></script>
 	<!-- fullcalendar -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+	<script th:src="@{/plugins/moment/2.11.2/moment.min.js}"></script>
 	<script th:src="@{/plugins/fullcalendar/fullcalendar.min.js}"></script>
 	<!-- AdminLTE App -->
 	<script th:src="@{/adminlte/js/app.min.js}"></script>

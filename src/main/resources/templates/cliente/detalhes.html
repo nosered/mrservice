@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorator="layouts/base">
+    layout:decorator="layouts/base"
+    th:with="currentPage='cliente'">
 <head>
 	<title>MR - Cliente</title>
 </head>
@@ -29,7 +30,7 @@
           		<span class="box-title">Informações pessoais</span>
           		<div class="box-tools pull-right" title="Status">
             		<div class="btn-group" >
-              			<button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o text-green"></i> Editar</button>
+              			<a type="button" th:href="@{/cliente/editar/{idCliente}(idCliente=${cliente.id})}" class="btn btn-default"><i class="fa fa-pencil-square-o text-green"></i> Editar</a>
             		</div>
           		</div>
         	</div>
@@ -38,15 +39,23 @@
     	    	<div class="row">
     	    		<div class="col-md-3">
                 		<p><strong>Nome: </strong></p>
-                		<p>Pedro Lucas de Sousa</p>
+                		<p th:text="${cliente.nome}"></p>
               		</div>
              		<div class="col-md-3">
                 		<p><strong>Telefone:</strong></p>
-                		<p>(89) 98989-9898</p>
+                		<p th:text="${cliente.telefone}"></p>
               		</div>
               		<div class="col-md-6">
                 		<p><strong>Endereço:</strong></p>
-                		<p>Av. Epitácio Pessoa, 500 apto 101. Centro.</p>
+                		<p th:text="${cliente.endereco}"></p>
+              		</div>
+              		<div class="col-md-3">
+                		<p><strong>Bairro: </strong></p>
+                		<p th:text="${cliente.bairro.nome}"></p>
+              		</div>
+             		<div class="col-md-9">
+                		<p><strong>Ponto de referência:</strong></p>
+                		<p th:text="${cliente.pontoReferencia}"></p>
               		</div>
               		<div class="col-md-12">
                 		<div class="form-group">
@@ -54,6 +63,7 @@
                   			<div class="input-group">
                     			<select class="form-control select2" style="width:100%;">
                       				<option>Brastemp</option>
+                      				<option>Consul</option>
                       				<option>Eletrolux</option>
                     			</select>
                     			<div class="input-group-btn">
