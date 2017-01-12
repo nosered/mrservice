@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<cliente id="1" nome="teste 1"></cliente>
+	<maquina id="1" cliente_id="1" modelo="modelo um"></maquina>
+	<maquina id="2" cliente_id="1" modelo="modelo dois"></maquina>
+	<maquina id="3" cliente_id="1" modelo="modelo três"></maquina>
+</dataset>
