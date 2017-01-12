@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.eti.esabreu.mrservice.model.Cliente;
+import br.eti.esabreu.mrservice.model.Cliente.Bairro;
 import br.eti.esabreu.mrservice.service.ClienteService;
 
 import static br.eti.esabreu.mrservice.util.PageConstantes.FORM_CLIENTE;
 import static br.eti.esabreu.mrservice.util.PageConstantes.LISTAR_CLIENTES;
 import static br.eti.esabreu.mrservice.util.PageConstantes.DETALHES_CLIENTE;
 import static br.eti.esabreu.mrservice.util.RedirectConstantes.REDIRECT_LISTAR_CLIENTES;
+import static br.eti.esabreu.mrservice.util.RedirectConstantes.REDIRECT_DETALHES_CLIENTE;
 
 @Controller
 @RequestMapping(value = "/cliente")
@@ -28,13 +30,15 @@ public class ClienteController {
 	public ModelAndView form(Cliente cliente) {
 		ModelAndView mView = new ModelAndView(FORM_CLIENTE);
 		mView.addObject("cliente", cliente);
+		mView.addObject("bairros", Bairro.values());
 		return mView;
 	}
 	
 	@PostMapping("/salvar")
 	public ModelAndView salvar(@ModelAttribute("cliente") Cliente cliente) {
-		ModelAndView mView = new ModelAndView(REDIRECT_LISTAR_CLIENTES);
+		ModelAndView mView = new ModelAndView();
 		clienteService.salvar(cliente);
+		mView.setViewName(REDIRECT_DETALHES_CLIENTE + cliente.getId());
 		return mView;
 	}
 	
