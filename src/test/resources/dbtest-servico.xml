@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<servico id="1" descricao="servico um"></servico>
+	<servico id="2" descricao="servico dois"></servico>
+	<servico id="3" descricao="servico tres"></servico>
+</dataset>
