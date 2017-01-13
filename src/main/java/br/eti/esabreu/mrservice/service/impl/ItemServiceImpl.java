@@ -3,11 +3,13 @@ package br.eti.esabreu.mrservice.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.eti.esabreu.mrservice.model.Item;
 import br.eti.esabreu.mrservice.repository.ItemRepository;
 import br.eti.esabreu.mrservice.service.ItemService;
 
+@Service
 public class ItemServiceImpl implements ItemService {
 	
 	@Autowired
