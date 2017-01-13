@@ -13,4 +13,6 @@ public class PageConstantes {
 	public static final String FORM_ITEM = "item/formulario";
 	public static final String LISTAR_ITENS = "item/listar";
 	public static final String DETALHES_ITEM = "item/detalhes";
+	
+	public static final String FORM_MAQUINA = "maquina/formulario";
 }
