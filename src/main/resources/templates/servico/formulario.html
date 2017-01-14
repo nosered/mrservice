@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layouts/base"
+    th:with="currentPage='servico'">
+<head>
+	<title>MR - Serviço</title>
+</head>
+
+<!-- Content Wrapper. Contains page content -->
+<div layout:fragment="conteudo" class="content-wrapper">
+	<!-- Content Header (Page header) -->
+    <section class="content-header">
+    	<h1>Assistência Técnica
+    		<small>Lavadoras de roupa</small>
+		</h1>
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+			<li class="active">Here</li>
+		</ol>
+	</section>
+	
+	<!-- Main content -->
+	<section class="content">
+		<div class="box box-success">
+        	<div class="box-header with-border">
+          		<h3 class="box-title">Cadastrar Serviço</h3>
+        	</div><!-- /.box-header -->
+        	
+        	<form th:action="@{/servico/salvar}" method="post" th:object="${servico}">
+        		<div class="box-body">
+          			<div class="row">
+            			<div class="col-md-8">
+            				<input type="hidden" th:field="*{id}"></input>
+              				<div class="form-group">
+                				<label for="inputDescricao">Descrição</label>
+                				<div class="input-group">  
+                  					<span class="input-group-addon"><i class="fa fa-font"></i></span>
+                  					<input type="text" class="form-control input-lg" id="inputDescricao" th:field="*{descricao}"></input>
+                				</div>
+              				</div>
+              			</div><!-- ./col -->
+              			<div class="col-md-4">
+              				<div class="form-group">
+                				<label for="inputPreco">Preço</label>
+                				<div class="input-group">  
+                  					<span class="input-group-addon"><i class="fa fa-money"></i></span>
+                  					<input type="text" class="form-control input-lg" id="inputPreco" th:field="*{preco}"></input>
+                				</div>
+              				</div>
+            			</div><!-- ./col -->
+          			</div><!-- ./row -->
+        		</div><!-- /.box-body -->
+			
+				<div class="box-footer">
+          			<button type="submit" class="btn btn-success pull-right btn-lg">Salvar</button>
+          			<!--<a href="index.html"><button class="btn btn-warning pull-right">Cancelar</button></a>-->
+        		</div>
+        	</form>
+      	</div><!-- /.box -->
+	</section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+
+<!-- SE NECESSÁRIO JAVASCRIPT EXTRA -->
+<section layout:fragment="js">
+	<script>
+		$(function () {
+			$('#inputPreco').mask('000.000.000.000.000,00', {reverse: true});
+		});
+	</script>
+</section>
+
+</html>

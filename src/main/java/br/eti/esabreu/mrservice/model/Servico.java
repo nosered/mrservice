@@ -1,7 +1,9 @@
 package br.eti.esabreu.mrservice.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +17,8 @@ public class Servico {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String descricao;
-	private Double preco;
+	@Column(precision = 11, scale = 2)
+	private BigDecimal preco;
 	@ManyToMany(mappedBy = "servicos")
 	private List<OrdemServico> ordensServico;
 	
@@ -31,10 +34,10 @@ public class Servico {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Double getPreco() {
+	public BigDecimal getPreco() {
 		return preco;
 	}
-	public void setPreco(Double preco) {
+	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
 	public List<OrdemServico> getOrdensServico() {
