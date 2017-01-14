@@ -20,7 +20,7 @@ public class Item {
 	private Integer qtdMinima;
 	private Integer qtdEstoque;
 	private Tipo tipo;
-	private Estado estado;
+	private Condicao condicao;
 	@ManyToMany(mappedBy = "itens")
 	private List<OrdemServico> ordensServico;
 	@OneToMany(mappedBy = "item", cascade = CascadeType.MERGE)
@@ -39,10 +39,10 @@ public class Item {
 		}
 	}
 	
-	public enum Estado {
-		NOVO("Novo"), USADO("USADO");
+	public enum Condicao {
+		NOVO("Novo"), USADO("Usado");
 		private String descricao;
-		private Estado(String descricao) {
+		private Condicao(String descricao) {
 			this.descricao = descricao;
 		}
 		public String getDescricao() {
@@ -90,12 +90,12 @@ public class Item {
 		this.tipo = tipo;
 	}
 
-	public Estado getEstado() {
-		return estado;
+	public Condicao getCondicao() {
+		return condicao;
 	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
+	public void setCondicao(Condicao condicao) {
+		this.condicao = condicao;
 	}
 
 	public List<OrdemServico> getOrdensServico() {

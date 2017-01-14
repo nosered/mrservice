@@ -135,6 +135,19 @@
             				<li><a href="#">Listar O.S. (Todas)</a></li>
           				</ul>
         			</li>
+        			<li class="treeview" th:classappend="(${currentPage} == 'estoque') ? active">
+          				<a href="#"><i class="fa fa-exchange"></i> <span> Estoque</span>
+            				<span class="pull-right-container">
+              					<i class="fa fa-angle-left pull-right"></i>
+            				</span>
+          				</a>
+          				<ul class="treeview-menu">
+            				<li><a th:href="@{/item/form}">Cadastrar Item</a></li>
+            				<li><a th:href="@{/item/listar}">Listar Itens</a></li>
+            				<li><a th:href="@{/item/entrada/form}">Entrada de Itens</a></li>
+            				<li><a th:href="@{/item/saida/form}">Saída de Itens</a></li>
+          				</ul>
+        			</li>
         			<li class="treeview">
           				<a href="#"><i class="fa fa-dollar"></i> <span> Financeiro</span>
             				<span class="pull-right-container">

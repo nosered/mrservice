@@ -27,6 +27,8 @@ public class ItemController {
 	@GetMapping("/form")
 	public ModelAndView form(Item item) {
 		ModelAndView mView = new ModelAndView(FORM_ITEM);
+		mView.addObject("tipos", Item.Tipo.values());
+		mView.addObject("condicoes", Item.Condicao.values());
 		mView.addObject("item", item);
 		return mView;
 	}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layouts/base"
+    th:with="currentPage='estoque'">
+<head>
+	<title>Página Modelo</title>
+</head>
+
+<!-- Content Wrapper. Contains page content -->
+<div layout:fragment="conteudo" class="content-wrapper">
+	<!-- Content Header (Page header) -->
+    <section class="content-header">
+    	<h1>Assistência Técnica
+    		<small>Lavadoras de roupa</small>
+		</h1>
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+			<li class="active">Here</li>
+		</ol>
+	</section>
+	
+	<!-- Main content -->
+	<section class="content">
+		<div class="box box-success">
+        	<div class="box-header with-border">
+          		<h3 class="box-title">Cadastrar item</h3>
+        	</div><!-- /.box-header -->
+        	
+        	<form th:action="@{/item/salvar}" method="post" th:object="${item}">
+        		<div class="box-body">
+          			<div class="row">
+            			<div class="col-md-8">
+            				<input type="hidden" th:field="*{id}"></input>
+              				<div class="form-group">
+                				<label for="inputNome">Nome</label>
+                				<div class="input-group">  
+                  					<span class="input-group-addon"><i class="fa fa-font"></i></span>
+                  					<input type="text" class="form-control input-lg" id="inputNome" th:field="*{nome}"></input>
+                				</div>
+              				</div>
+              			</div><!-- ./col -->
+              			<div class="col-md-4">
+              				<div class="form-group">
+                				<label for="inputQtdMinima">Quantidade mínima</label>
+                				<div class="input-group">  
+                  					<span class="input-group-addon"><i class="fa fa-balance-scale"></i></span>
+                  					<input type="text" class="form-control input-lg" id="inputQtdMinima" th:field="*{qtdMinima}"></input>
+                				</div>
+              				</div>
+            			</div><!-- ./col -->
+            			<div class="col-md-4">
+              				<div class="form-group">
+                				<label for="inputTipo">Tipo</label>
+                				<div class="input-group">  
+                  					<span class="input-group-addon"><i class="fa fa-gear"></i></span>
+                  					<select class="form-control input-lg" style="width: 100%;" id="inputTipo" th:field="*{tipo}">
+                  						<option th:each="tipo: ${tipos}" th:value="${tipo}" th:text="${tipo.descricao}"></option>
+                  					</select>
+                				</div>
+              				</div>
+              			</div><!-- ./col -->
+              			<div class="col-md-4">
+              				<div class="form-group">
+                				<label for="inputCondicao">Condição</label>
+                				<div class="input-group input-group-lg">  
+                  					<span class="input-group-addon"><i class="fa fa-cube"></i></span>
+                  					<select class="form-control input-lg" style="width:100%;" id="inputCondicao" th:field="*{condicao}">
+                      					<option th:each="condicao : ${condicoes}" th:value="${condicao}" th:text="${condicao.descricao}"></option>
+                    				</select>
+                				</div>
+              				</div>
+            			</div><!-- ./col -->
+          			</div><!-- ./row -->
+        		</div><!-- /.box-body -->
+			
+				<div class="box-footer">
+          			<button type="submit" class="btn btn-success pull-right btn-lg">Salvar</button>
+          			<!--<a href="index.html"><button class="btn btn-warning pull-right">Cancelar</button></a>-->
+        		</div>
+        	</form>
+      	</div><!-- /.box -->
+
+	</section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+
+<!-- SE NECESSÁRIO JAVASCRIPT EXTRA -->
+<section layout:fragment="js">
+</section>
+
+</html>
