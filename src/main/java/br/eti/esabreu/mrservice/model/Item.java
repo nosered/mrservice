@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +21,9 @@ public class Item {
 	private String nome;
 	private Integer qtdMinima;
 	private Integer qtdEstoque;
+	@Enumerated(EnumType.STRING)
 	private Tipo tipo;
+	@Enumerated(EnumType.STRING)
 	private Condicao condicao;
 	@ManyToMany(mappedBy = "itens")
 	private List<OrdemServico> ordensServico;
