@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import br.eti.esabreu.mrservice.model.Maquina;
 import br.eti.esabreu.mrservice.service.MaquinaService;
 
@@ -21,12 +22,12 @@ public class MaquinaController {
 
 	@Autowired
 	private MaquinaService maquinaService;
-
+	
 	@GetMapping("/form")
 	public ModelAndView form(Maquina maquina) {
+		
 		ModelAndView mView = new ModelAndView(FORM_MAQUINA);
 		mView.addObject("maquina", maquina);
-
 		return mView;
 	}
 
