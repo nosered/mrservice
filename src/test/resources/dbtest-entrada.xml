@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+	<!-- ITENS -->
+	<item id="1" nome="Item um"></item>
+	<item id="2" nome="Item dois"></item>
+	
+	<!-- ENTRADAS DE ITEM -->
+	<entrada id="1" item_id="1" qtd="10" custo="200"></entrada>
+	<entrada id="2" item_id="1" qtd="5" custo="120"></entrada>
+	<entrada id="3" item_id="2" qtd="2" custo="50"></entrada>
+</dataset>
