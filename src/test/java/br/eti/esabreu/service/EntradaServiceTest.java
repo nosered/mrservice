@@ -39,7 +39,7 @@ public class EntradaServiceTest extends AbstractServiceTest {
 	
 	@Test
 	public void salvarTest() {
-		//Salvando um novo item
+		//Salvando uma nova entrada
 		Item item = new Item();
 		item.setId(2);
 		Entrada entrada = new Entrada();
@@ -49,7 +49,7 @@ public class EntradaServiceTest extends AbstractServiceTest {
 		entradaService.salvar(entrada);
 		assertEquals(true, entradaService.buscar(4).getCusto() == 500.0);
 		
-		//Atualizando item existente
+		//Atualizando entrada existente
 		entrada.setCusto(600.0);
 		entradaService.salvar(entrada);
 		assertEquals(true, entradaService.buscar(4).getCusto() == 600.0);
