@@ -36,6 +36,7 @@
                   			<th>Telefone</th>
                   			<th>Endereço</th>
                   			<th>Agendar Visita</th>
+                  			<th>Cadastrar Máquina</th>
                   			<!-- <th>Ver detalhes</th> -->
                 		</tr>
                 	</thead>
@@ -44,19 +45,12 @@
                   			<td><strong><a th:href="@{/cliente/detalhes/{idCliente}(idCliente=${cliente.id})}" th:text="${cliente.nome}" style="display:block;"></a></strong></td>
                   			<td th:text="${cliente.telefone}"></td>
                   			<td th:text="${cliente.endereco}"></td>
-                  			<td><a href="#"><button class="btn btn-success btn-sm btn-block">Agendar</button></a></td>
+                  			<td><a href="#"><button class="btn btn-default btn-sm btn-block"><i class="fa fa-fw fa-calendar-check-o text-blue">  Agendar </i></button></a></td>
+                  			<td><a th:href="@{/maquina/form/{idCliente}(idCliente=${cliente.id})}"><button class="btn btn-default btn-sm btn-block"><i class="fa fa-plus text-blue"> Adicionar </i> </button></a></td>
                   			<!-- <td><a th:href="@{/cliente/detalhes/{idCliente}(idCliente=${cliente.id})}"><button class="btn btn-default btn-sm btn-block">Detalhes</button></a></td> -->
                 		</tr>
                 	</tbody>
-                	<tfoot>
-                		<tr>
-                  			<th>Nome</th>
-                  			<th>Telefone</th>
-                  			<th>Endereço</th>
-                  			<th>Agendar</th>
-                  			<!-- <th>Ver detalhes</th> -->
-                		</tr>
-                	</tfoot>
+              
               	</table>
             </div><!-- /.box-body -->
 		</div><!-- ./box -->
