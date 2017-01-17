@@ -50,7 +50,8 @@ public class MaquinaController {
 
 	@GetMapping("/editar/{idMaquina}")
 	public ModelAndView editar(@PathVariable("idMaquina") Maquina maquina) {
-		return form(maquina, maquina.getId());
+		Cliente cliente = maquina.getCliente();
+		return form(maquina, cliente.getId());
 	}
 
 	@GetMapping("/remover/{idMaquina}")
