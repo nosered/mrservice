@@ -29,7 +29,7 @@
 			</div>
 			<!-- /.box-header -->
 
-			<form th:action="@{/maquina/salvar}" method="post"
+			<form th:action="@{/maquina/salvar/{idCliente}(idCliente=${cliente.id})}" method="post"
 				th:object="${maquina}">
 				<div class="box-body">
 					<div class="row">
@@ -42,7 +42,7 @@
 										class="fa fa-fw fa-user"></i></span> 
 										<select disabled="disabled"
 										class="form-control input-lgol" style="width: 100%;">
-										<option >Cliente 1</option>
+                                          <option th:value="${cliente.id}" th:field="*{cliente}" th:text="${cliente.nome}"></option>
 									</select>
 								</div>
 							</div>
