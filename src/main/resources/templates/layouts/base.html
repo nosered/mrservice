@@ -123,6 +123,17 @@
             				<li><a th:href="@{/cliente/listar}">Listar clientes</a></li>
           				</ul>
         			</li>
+        			<li class="treeview" th:classappend="(${currentPage} == 'servico') ? active">
+          				<a href="#"><i class="fa fa-hand-grab-o"></i> <span> Serviço</span>
+            				<span class="pull-right-container">
+              					<i class="fa fa-angle-left pull-right"></i>
+            				</span>
+          				</a>
+          				<ul class="treeview-menu">
+            				<li><a th:href="@{/servico/form}">Cadastrar serviço</a></li>
+            				<li><a th:href="@{/servico/listar}">Listar serviços</a></li>
+          				</ul>
+        			</li>
         			<li class="treeview" th:classappend="(${currentPage} == 'ordemservico') ? active">
           				<a href="#"><i class="fa fa-wrench"></i> <span> Ordem de Serviço</span>
             				<span class="pull-right-container">
