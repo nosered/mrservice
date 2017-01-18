@@ -35,7 +35,7 @@
             				<input type="hidden" th:field="*{id}"></input>
               				<div class="form-group">
                 				<label for="inputNome">Nome</label>
-                				<div class="input-group">  
+                				<div class="input-group  input-group-lg">  
                   					<span class="input-group-addon"><i class="fa fa-font"></i></span>
                   					<input type="text" class="form-control input-lg" id="inputNome" th:field="*{nome}"></input>
                 				</div>
@@ -44,7 +44,7 @@
               			<div class="col-md-4">
               				<div class="form-group">
                 				<label for="inputQtdMinima">Quantidade mínima</label>
-                				<div class="input-group">  
+                				<div class="input-group  input-group-lg">  
                   					<span class="input-group-addon"><i class="fa fa-balance-scale"></i></span>
                   					<input type="text" class="form-control input-lg" id="inputQtdMinima" th:field="*{qtdMinima}"></input>
                 				</div>
@@ -53,7 +53,7 @@
             			<div class="col-md-4">
               				<div class="form-group">
                 				<label for="inputTipo">Tipo</label>
-                				<div class="input-group">  
+                				<div class="input-group  input-group-lg">  
                   					<span class="input-group-addon"><i class="fa fa-gear"></i></span>
                   					<select class="form-control input-lg" style="width: 100%;" id="inputTipo" th:field="*{tipo}">
                   						<option th:each="tipo: ${tipos}" th:value="${tipo}" th:text="${tipo.descricao}"></option>
