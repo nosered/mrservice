@@ -33,28 +33,39 @@
 					<div class="col-md-6">
               			<div class="form-group">
                 			<label>Cliente</label>
-                			<select class="form-control select2" data-placeholder="Selecione um cliente" style="width: 100%;">
-                  				<option>Marcos Antônio</option>
-                  				<option>Rosa Maria</option>
-                  				<option>Mariana Silva</option>
-                  				<option>Alison Santos</option>
-                  				<option>Pedro Lucas</option>
-                			</select>
+                			<div class="input-group input-group-lg">
+	                			<span class="input-group-addon">
+	                				<i class="fa fa-fw fa-user"></i>
+	                			</span>
+	                			<select class="form-control input-lgol" 
+	                			data-placeholder="Selecione um cliente" style="width: 100%;">
+	                  				<option>Marcos Antônio</option>
+	                  				<option>Rosa Maria</option>
+	                  				<option>Mariana Silva</option>
+	                  				<option>Alison Santos</option>
+	                  				<option>Pedro Lucas</option>
+	                			</select>
+                			</div>
               			</div>
               			<div class="form-group">
                 			<label>Máquina</label>
-                			<select class="form-control select2" data-placeholder="Selecione um cliente" style="width: 100%;">
-                  				<option>Brastemp 11kg</option>
-                  				<option>Eletrolux 9kg</option>
-                  				<option>Arno 5kg</option>
-                			</select>
+                			 <div class="input-group input-group-lg">
+	                			<span class="input-group-addon">
+	                				<i class="fa fa-fw fa-cube"></i>
+	                			</span>
+	                			<select class="form-control input-lgol" data-placeholder="Selecione um cliente" style="width: 100%;">
+	                  				<option>Brastemp 11kg</option>
+	                  				<option>Eletrolux 9kg</option>
+	                  				<option>Arno 5kg</option>
+	                			</select>
+	                		</div>
               			</div>
               			<div class="form-group">
                 			<label>Data</label>
-                			<div class="input-group date">
-                  				<div class="input-group-addon">
+                			<div class="input-group date input-group-lg">
+                  				<span class="input-group-addon">
                     				<i class="fa fa-calendar"></i>
-                  				</div>
+                  				</span>
                   				<input type="text" class="form-control pull-right" id="datepicker"></input>
                 			</div>
               			</div>
@@ -63,25 +74,37 @@
             		<div class="col-md-6">
               			<div class="form-group">
                 			<label>Tipo de O.S.</label>
-                			<select class="form-control" disabled="disabled">
-                  				<option>Visita</option>
-                  				<!--<option>Oficina</option>
-                  				<option>Garantia</option>-->
-                			</select>
+                			<div class="input-group input-group-lg">
+                  				<span class="input-group-addon">
+                    				<i class="fa fa-fw fa-tag"></i>
+                  				</span>
+	                			<select class="form-control" disabled="disabled">
+	                  				<option>Visita</option>
+	                			</select>
+                			</div>
               			</div>
               			<div class="form-group">
                 			<label>Situação</label>
-                			<select class="form-control">
-                  				<option>Autorizada</option>
-                  				<option>Pendente</option>
-                  				<option>Em serviço</option>
-                  				<option>Cancelada</option>
-                  				<option>Terminada</option>
-                			</select>
+                			<div class="input-group input-group-lg">
+                  				<span class="input-group-addon">
+                    				<i class="fa fa-fw fa-check-square-o"></i>
+                  				</span>
+	                			<select class="form-control">
+	                  				<option>Autorizada</option>
+	                  				<option>Pendente</option>
+	                  				<option>Em serviço</option>
+	                  				<option>Cancelada</option>
+	                  				<option>Terminada</option>
+	                			</select>
+	                		</div>
               			</div>
               			<div class="form-group">
                 			<label>Defeito relatado</label>
-                			<textarea class="form-control"></textarea>
+                			<div class="input-group input-group-lg">
+                				<span class="input-group-addon">
+                				<i class="fa fa-fw fa-pencil-square-o"></i></span>
+                				<textarea class="form-control " style="width: 100%;"></textarea>
+                			</div>
               			</div>
             		</div><!-- ./col -->
             	</div><!-- ./row -->
