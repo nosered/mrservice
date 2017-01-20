@@ -12,4 +12,6 @@ public class RedirectConstantes {
 	public static final String REDIRECT_LISTAR_ENTRADAS = "redirect:/estoque/entrada/listar";
 	
 	public static final String REDIRECT_LISTAR_SAIDAS = "redirect:/estoque/saida/listar";
+	
+	public static final String REDIRECT_LISTAR_OS = "redirect:/ordemServico/listar";
 }

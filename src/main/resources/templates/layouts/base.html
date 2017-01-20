@@ -108,8 +108,8 @@
             				</span>
           				</a>
           				<ul class="treeview-menu">
-            				<li><a th:href="@{/os/agendamentos}">Agendamentos</a></li>
-            				<li><a th:href="@{/os/agendar}">Agendar Visita</a></li>
+            				<li><a th:href="@{/ordemServico/agendamentos}">Agendamentos</a></li>
+            				<li><a th:href="@{/ordemServico/agendar}">Agendar Visita</a></li>
           				</ul>
         			</li>
         			<li class="treeview" th:classappend="(${currentPage} == 'cliente') ? active">
@@ -141,7 +141,7 @@
             				</span>
           				</a>
           				<ul class="treeview-menu">
-            				<li><a th:href="@{/os/abrir}">Abrir O.S.</a></li>
+            				<li><a th:href="@{/ordemServico/form}">Abrir O.S.</a></li>
             				<li><a href="#">Listar O.S. (Abertas)</a></li>
             				<li><a href="#">Listar O.S. (Todas)</a></li>
           				</ul>
