@@ -35,9 +35,9 @@
 							<div class="form-group">
 								<label>Cliente</label>
 								<div class="input-group input-group-lg">
-									<span class="input-group-addon"><i class="fa fa-fw fa-user"></i></span> 
+									<span class="input-group-addon"><i class="fa fa-male"></i></span> 
 									<select class="form-control" data-placeholder="Selecione um cliente" style="width: 100%;" th:field="*{cliente}" id="inputCliente">
-										<option th:each="cliente : ${clientesList}" th:value="${cliente}" th:text="${cliente.nome}"></option>
+										<option th:each="cliente : ${clientesList}" th:value="${cliente.id}" th:text="${cliente.nome}"></option>
 									</select>
 								</div>
 							</div>
@@ -46,7 +46,7 @@
 								<div class="input-group input-group-lg">
 									<span class="input-group-addon"><i class="fa fa-fw fa-cube"></i></span> 
 									<select class="form-control" data-placeholder="Selecione um cliente" style="width: 100%;" id="inputmaquina" th:field="*{maquina}">
-										<option th:each="maquina : ${maquinasList}" th:value="${maquina}" th:text="${maquina.modelo}"></option>
+										<option th:each="maquina : ${maquinasList}" th:value="${maquina.id}" th:text="${maquina.modelo}"></option>
 									</select>
 								</div>
 							</div>
@@ -60,11 +60,20 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Servico</label>
+								<label>Serviço</label>
 								<div class="input-group input-group-lg">
-									<span class="input-group-addon"><i class="fa fa-fw fa-check-square-o"></i></span> 
+									<span class="input-group-addon"><i class="fa fa-hand-grab-o"></i></span> 
 									<select class="form-control" id="inputServico" th:field="*{servicos}">
-										<option th:each="servicos : ${servicosList}" th:value="${servicos}" th:text="${servicos.descricao}"></option>
+										<option th:each="servicos : ${servicosList}" th:value="${servicos.id}" th:text="${servicos.descricao}"></option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Técnico</label>
+								<div class="input-group input-group-lg">
+									<span class="input-group-addon"><i class="fa fa-fw fa-user"></i></span> 
+									<select class="form-control" id="inputTecnico" th:field="*{tecnico}">
+										<option th:each="tecnico : ${tecnicosList}" th:value="${tecnico.id}" th:text="${tecnico.nome}"></option>
 									</select>
 								</div>
 							</div>
@@ -92,9 +101,9 @@
 							<div class="form-group">
 								<label>Itens</label>
 								<div class="input-group input-group-lg">
-									<span class="input-group-addon"><i class="fa fa-fw fa-check-square-o"></i></span> 
+									<span class="input-group-addon"><i class="fa fa-fw fa-key"></i></span> 
 									<select class="form-control" id="inputItem" th:field="*{itens}">
-										<option th:each="itens : ${itensList}" th:value="${itens}" th:text="${itens.nome}"></option>
+										<option th:each="itens : ${itensList}" th:value="${itens.id}" th:text="${itens.nome}"></option>
 									</select>
 								</div>
 							</div>

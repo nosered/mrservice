@@ -93,8 +93,8 @@ public class OrdemServico {
 	public Tecnico getTecnico() {
 		return tecnico;
 	}
-
-	public void setResponsavel(Tecnico tecnico) {
+	
+	public void setTecnico(Tecnico tecnico) {
 		this.tecnico = tecnico;
 	}
 

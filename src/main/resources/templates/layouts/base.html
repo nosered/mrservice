@@ -142,8 +142,8 @@
           				</a>
           				<ul class="treeview-menu">
             				<li><a th:href="@{/ordemServico/form}">Abrir O.S.</a></li>
-            				<li><a href="#">Listar O.S. (Abertas)</a></li>
-            				<li><a href="#">Listar O.S. (Todas)</a></li>
+            				<li><a th:href="@{/ordemServico/listar}">Listar O.S. (Abertas)</a></li>
+            				<li><a th:href="@{/ordemServico/listar}">Listar O.S. (Todas)</a></li>
           				</ul>
         			</li>
         			<li class="treeview" th:classappend="(${currentPage} == 'estoque') ? active">

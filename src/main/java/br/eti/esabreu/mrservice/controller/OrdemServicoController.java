@@ -22,6 +22,7 @@ import br.eti.esabreu.mrservice.service.ItemService;
 import br.eti.esabreu.mrservice.service.MaquinaService;
 import br.eti.esabreu.mrservice.service.OrdemServicoService;
 import br.eti.esabreu.mrservice.service.ServicoService;
+import br.eti.esabreu.mrservice.service.TecnicoService;
 
 @Controller
 @RequestMapping(value = "/ordemServico")
@@ -37,6 +38,8 @@ public class OrdemServicoController {
 	private ServicoService servicoService;
 	@Autowired
 	private ItemService itemService;
+	@Autowired
+	private TecnicoService tecnicoService;
 		
 	@GetMapping("/form")
 	public ModelAndView form(OrdemServico ordemServico) {
@@ -49,6 +52,7 @@ public class OrdemServicoController {
 		mView.addObject("maquinasList", maquinaService.buscar());
 		mView.addObject("servicosList", servicoService.buscar());
 		mView.addObject("itensList", itemService.buscar());
+		mView.addObject("tecnicosList", tecnicoService.buscar());
 		return mView;
 	}
 	
@@ -101,8 +105,5 @@ public class OrdemServicoController {
 		return "listar-agendamentos";
 	}
 	
-	@GetMapping("/detalhes")
-	public String visualizarDetalhes(){
-		return "ordemServico/detalhes-os";
-	}
+	
 }
