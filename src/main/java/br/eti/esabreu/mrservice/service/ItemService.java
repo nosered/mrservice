@@ -9,4 +9,6 @@ public interface ItemService {
 	void remover(Integer idItem);
 	Item buscar(Integer idItem);
 	List<Item> buscar();
+	
+	List<Item> buscarPorNome(String nome);
 }
