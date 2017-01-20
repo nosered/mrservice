@@ -1,15 +1,21 @@
 package br.eti.esabreu.mrservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomNumberEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.eti.esabreu.mrservice.model.Entrada;
+import br.eti.esabreu.mrservice.model.Item;
 import br.eti.esabreu.mrservice.model.Saida;
 import br.eti.esabreu.mrservice.service.EntradaService;
 import br.eti.esabreu.mrservice.service.ItemService;
@@ -21,6 +27,10 @@ import static br.eti.esabreu.mrservice.util.PageConstantes.LISTAR_ENTRADAS;
 import static br.eti.esabreu.mrservice.util.PageConstantes.LISTAR_SAIDAS;
 import static br.eti.esabreu.mrservice.util.RedirectConstantes.REDIRECT_LISTAR_ENTRADAS;
 import static br.eti.esabreu.mrservice.util.RedirectConstantes.REDIRECT_LISTAR_SAIDAS;
+
+import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 @Controller
 @RequestMapping("/estoque")
@@ -35,11 +45,15 @@ public class EstoqueController {
 	@Autowired
 	private ItemService itemService;
 	
+	@InitBinder
+	public void registerCustomEditors(WebDataBinder binder, WebRequest request) {
+		binder.registerCustomEditor(BigDecimal.class, new CustomNumberEditor(BigDecimal.class, NumberFormat.getNumberInstance(new Locale("pt","BR")),true));
+	}
+	
 	@GetMapping("/entrada/form")
 	public ModelAndView formEntrada(Entrada entrada) {
 		ModelAndView mView = new ModelAndView(FORM_ENTRADA);
 		mView.addObject("entrada", entrada);
-		mView.addObject("itens", itemService.buscar());
 		return mView;
 	}
 	
@@ -52,8 +66,9 @@ public class EstoqueController {
 	}
 	
 	@PostMapping("/entrada/salvar")
-	public ModelAndView salvarEntrada(@ModelAttribute("entrada") Entrada entrada) {
+	public ModelAndView salvarEntrada(@ModelAttribute("entrada") Entrada entrada, @RequestParam("idItem") Item item) {
 		ModelAndView mView = new ModelAndView(REDIRECT_LISTAR_ENTRADAS);
+		entrada.setItem(item);
 		entradaService.salvar(entrada);
 		return mView;
 	}

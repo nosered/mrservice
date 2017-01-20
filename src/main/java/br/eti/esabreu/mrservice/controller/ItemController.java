@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.eti.esabreu.mrservice.model.Item;
@@ -16,6 +18,8 @@ import static br.eti.esabreu.mrservice.util.PageConstantes.FORM_ITEM;
 import static br.eti.esabreu.mrservice.util.PageConstantes.LISTAR_ITENS;
 import static br.eti.esabreu.mrservice.util.PageConstantes.DETALHES_ITEM;
 import static br.eti.esabreu.mrservice.util.RedirectConstantes.REDIRECT_LISTAR_ITENS;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/item")
@@ -64,5 +68,11 @@ public class ItemController {
 		ModelAndView mView = new ModelAndView(DETALHES_ITEM);
 		mView.addObject("item", item);
 		return mView;
+	}
+	
+	@GetMapping("/buscar")
+	public @ResponseBody List<Item> buscar(@RequestParam("search") String nome) {
+		List<Item> itens = itemService.buscarPorNome(nome);
+		return itens;
 	}
 }

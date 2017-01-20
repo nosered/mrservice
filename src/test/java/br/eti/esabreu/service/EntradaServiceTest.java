@@ -13,6 +13,8 @@ import br.eti.esabreu.mrservice.service.EntradaService;
 
 import static org.junit.Assert.*;
 
+import java.math.BigDecimal;
+
 @DatabaseSetup(EntradaServiceTest.DATASET)
 @DatabaseTearDown(type = DatabaseOperation.DELETE_ALL, value = {EntradaServiceTest.DATASET})
 public class EntradaServiceTest extends AbstractServiceTest {
@@ -26,7 +28,7 @@ public class EntradaServiceTest extends AbstractServiceTest {
 	public void buscarUmTest() {
 		//Entrada existente
 		Entrada entrada = entradaService.buscar(1);
-		assertEquals(true, entrada.getCusto()==200 && entrada.getQtd()==10);
+		assertEquals(true, entrada.getCusto().compareTo(new BigDecimal(200)) == 0 && entrada.getQtd()==10);
 		
 		//Entrada inexistente
 		assertEquals(null, entradaService.buscar(5));
@@ -44,15 +46,15 @@ public class EntradaServiceTest extends AbstractServiceTest {
 		item.setId(2);
 		Entrada entrada = new Entrada();
 		entrada.setItem(item);
-		entrada.setCusto(500.0);
+		entrada.setCusto(new BigDecimal(500));
 		entrada.setQtd(5);
 		entradaService.salvar(entrada);
-		assertEquals(true, entradaService.buscar(4).getCusto() == 500.0);
+		assertEquals(0, entradaService.buscar(4).getCusto().compareTo(new BigDecimal(500)));
 		
 		//Atualizando entrada existente
-		entrada.setCusto(600.0);
+		entrada.setCusto(new BigDecimal(600));
 		entradaService.salvar(entrada);
-		assertEquals(true, entradaService.buscar(4).getCusto() == 600.0);
+		assertEquals(0, entradaService.buscar(4).getCusto().compareTo(new BigDecimal(600)));
 	}
 	
 	@Test
