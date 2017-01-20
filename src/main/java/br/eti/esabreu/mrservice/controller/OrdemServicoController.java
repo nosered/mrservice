@@ -1,6 +1,7 @@
 package br.eti.esabreu.mrservice.controller;
 
 import static br.eti.esabreu.mrservice.util.PageConstantes.DETALHES_OS;
+import static br.eti.esabreu.mrservice.util.PageConstantes.AGENDAR_VISITA_OS;
 import static br.eti.esabreu.mrservice.util.PageConstantes.FORM_OS;
 import static br.eti.esabreu.mrservice.util.PageConstantes.LISTAR_OS;
 import static br.eti.esabreu.mrservice.util.RedirectConstantes.REDIRECT_LISTAR_OS;
@@ -91,13 +92,18 @@ public class OrdemServicoController {
 	}
 	
 	@GetMapping("/agendar")
-	public String formAgendarVisita(){
-		return "ordemServico/agendar-visita";
-	}
-	
-	@GetMapping("/abrir")
-	public String formAbrirOS(){
-		return "ordemServico/abrir-os";
+	public ModelAndView formAgendarVisita(OrdemServico ordemServico){
+		ModelAndView mView = new ModelAndView(AGENDAR_VISITA_OS);
+		
+		mView.addObject("ordemServico", ordemServico);
+		mView.addObject("tipoVisita", Tipo.VISITA);
+		mView.addObject("statusList", Status.values());
+		mView.addObject("clientesList", clienteService.buscar());
+		mView.addObject("maquinasList", maquinaService.buscar());
+		mView.addObject("servicosList", servicoService.buscar());
+		mView.addObject("itensList", itemService.buscar());
+		mView.addObject("tecnicosList", tecnicoService.buscar());
+		return mView;
 	}
 	
 	@GetMapping("/agendamentos")
