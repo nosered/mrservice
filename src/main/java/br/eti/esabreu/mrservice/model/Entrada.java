@@ -1,7 +1,9 @@
 package br.eti.esabreu.mrservice.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,8 +25,10 @@ public class Entrada {
 	@ManyToOne(optional = false)
 	private Item item;
 	private Integer qtd;
-	private Double custo;
-	private Double total;
+	@Column(precision = 11, scale = 2)
+	private BigDecimal custo;
+	@Column(precision = 11, scale = 2)
+	private BigDecimal total;
 	
 	public Integer getId() {
 		return id;
@@ -50,16 +54,16 @@ public class Entrada {
 	public void setQtd(Integer qtd) {
 		this.qtd = qtd;
 	}
-	public Double getCusto() {
+	public BigDecimal getCusto() {
 		return custo;
 	}
-	public void setCusto(Double custo) {
+	public void setCusto(BigDecimal custo) {
 		this.custo = custo;
 	}
-	public Double getTotal() {
+	public BigDecimal getTotal() {
 		return total;
 	}
-	public void setTotal(Double total) {
+	public void setTotal(BigDecimal total) {
 		this.total = total;
 	}
 	

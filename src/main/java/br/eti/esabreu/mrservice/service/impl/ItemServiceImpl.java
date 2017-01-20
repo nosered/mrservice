@@ -34,4 +34,10 @@ public class ItemServiceImpl implements ItemService {
 	public List<Item> buscar() {
 		return itemRepository.findAll();
 	}
+	
+	@Override
+	public List<Item> buscarPorNome(String nome) {
+		nome = nome.toUpperCase();
+		return itemRepository.findAllByNomeContaining(nome);
+	}
 }

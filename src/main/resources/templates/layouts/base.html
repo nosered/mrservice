@@ -155,8 +155,8 @@
           				<ul class="treeview-menu">
             				<li><a th:href="@{/item/form}">Cadastrar Item</a></li>
             				<li><a th:href="@{/item/listar}">Listar Itens</a></li>
-            				<li><a th:href="@{/item/entrada/form}">Entrada de Itens</a></li>
-            				<li><a th:href="@{/item/saida/form}">Saída de Itens</a></li>
+            				<li><a th:href="@{/estoque/entrada/form}">Entrada de Itens</a></li>
+            				<li><a th:href="@{/estoque/saida/form}">Saída de Itens</a></li>
           				</ul>
         			</li>
         			<li class="treeview">
@@ -170,6 +170,16 @@
             				<li><a href="#">Contas a pagar</a></li>
             				<li><a href="#">Contas a receber</a></li>
             				<li><a href="#">Relatório</a></li>
+          				</ul>
+        			</li>
+        			<li class="treeview">
+          				<a href="#"><i class="fa fa-dollar"></i> <span> TESTES</span>
+            				<span class="pull-right-container">
+              					<i class="fa fa-angle-left pull-right"></i>
+            				</span>
+          				</a>
+          				<ul class="treeview-menu">
+            				<li><a th:href="@{/item/listar/data}">Lista de itens (JSON)</a></li>
           				</ul>
         			</li>
       			</ul><!-- /.sidebar-menu -->
@@ -227,6 +237,10 @@
 	<script th:src="@{/plugins/select2/select2.full.min.js}"></script>
 	<!-- jQuery Mask-plugin -->
 	<script th:src="@{/plugins/mask-plugin/mask-plugin-1.14.8.min.js}"></script>
+	<!-- jQuery maskMoney -->
+	<script th:src="@{/plugins/maskMoney/3.0.2/jquery.maskMoney.min.js}"></script>
+	<!-- jQuery priceFormat -->
+	<script th:src="@{/plugins/price-format/jquery.priceformat.min.js}"></script>
 	<!-- InputMask -->
 	<script th:src="@{/plugins/input-mask/jquery.inputmask.js}"></script>
 	<script th:src="@{/plugins/input-mask/jquery.inputmask.date.extensions.js}"></script>
