@@ -88,6 +88,8 @@ public class OrdemServicoController {
 	public ModelAndView detalhes(@PathVariable("idOrdemServico") OrdemServico ordemServico) {
 		ModelAndView mView = new ModelAndView(DETALHES_OS);
 		mView.addObject("ordemServico", ordemServico);
+		mView.addObject("itensList", itemService.buscar());
+		mView.addObject("servicosList", servicoService.buscar());
 		return mView;
 	}
 	
